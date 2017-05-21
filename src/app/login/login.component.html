@@ -1,0 +1,128 @@
+<style>
+    #signupbox .glyphicon {
+        color: aquamarine;
+    }
+    #signupbox img{
+        width: 70px;height: 25px;float: left;
+    }
+</style>
+<article class="article-detail">
+    <div class="StaticMain">
+        <div id="loginbox" *ngIf="!show" class="mainbox col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Đăng nhập</div>
+                </div>
+                <hr class="colorgraph" />
+                <div class="panel-body">
+                    <div id="login-alert" *ngIf="message" class="alert alert-danger col-sm-12">{{message}}</div>
+                    <form id="loginform" [formGroup]="form" (ngSubmit)="loginSubmit(form.value)" class="form-horizontal" role="form">
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="email" class="form-control" formControlName="UserName" id="username" name="username" required
+                                type="text" autofocus placeholder="username or email">
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control" formControlName="Password" id="password" name="password"
+                                required placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <div class="pull-right"><a href="#">Quên mật khẩu?</a></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 controls">
+                                <button type="submit" id="btn-login" [disabled]="!form.valid" data-loading-text="Đang đăng nhập..." class="btn btn-success">Đăng nhập  </button>
+                                <button id="btn-fblogin" type="button" class="btn btn-primary">Đăng nhập bằng Facebook</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <hr class="colorgraph" />
+                                <div>
+                                    Bạn chưa có tài khoản !
+                                    <a (click)="show=!show">
+                                            Đăng ký ngay
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="signupbox" class="mainbox col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-2" *ngIf="show">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Đăng ký</div>
+                </div>
+                <div class="panel-body">
+                    <form id="signupform" class="form-horizontal" [formGroup]="formregister" (ngSubmit)="registerSubmit(formregister.value)"
+                        role="form">
+                        <div *ngIf="message" class="alert alert-danger col-sm-12">{{message}}</div>
+                        <div class="form-group has-feedback">
+                            <label class="col-md-3 control-label" for="inputSuccess2">Tên tài khoản</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" required placeholder="Tên tài khoản hoặc email" maxlength="250" formControlName="UserName" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+                                <span *ngIf="this.formregister.controls['UserName'].valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback">
+                            <label class="col-md-3 control-label">Mật khẩu</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" required maxlength="20" placeholder="Mật khẩu..." formControlName="Password">
+                                <span *ngIf="this.formregister.controls['Password'].valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-md-3 control-label">Xác nhận mật khẩu</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" required formControlName="ConfirmPassword" maxlength="20" placeholder="Nhập lại mật khẩu...">
+                                <span *ngIf="this.formregister.controls['ConfirmPassword'].valid && this.formregister.get('ConfirmPassword').value == this.formregister.get('Password').value"
+                                    class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-md-3 control-label">Email</label>
+                            <div class="col-md-9">
+                                <input type="email" class="form-control" formControlName="Email" maxlength="250" placeholder="Địa chỉ email..">
+                                <span *ngIf="this.formregister.controls['Email'].valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-md-3 control-label">Số điện thoại</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" formControlName="Phone" maxlength="20" placeholder="Số điện thoại...">
+                                <span *ngIf="this.formregister.controls['Phone'].valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="Captcha" class="col-md-3 control-label">Mã xác nhận</label>
+                            <div class="col-md-9">
+                                <input type="text" class="text-uppercase  form-control" formControlName="Captcha" name="Captcha" required name="Captcha"  maxlength="20" placeholder="Nhập mã xác nhận bên dưới...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <div class="col-md-9">
+                                <img src="" alt="{{imgCaptcha}}"/><span id="reloadCaptcha" (click)="RandomNumber()"><i class="glyphicon glyphicon-refresh"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 controls">
+                                <button id="btn-signup" type="submit" [disabled]="!formregister.valid" data-loading-text="Đang đăng ký..." class="btn btn-info"><i class="icon-hand-right"></i>Đăng Ký</button>
+                                <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>Đăng ký bằng Facebook</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</article>

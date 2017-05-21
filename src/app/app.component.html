@@ -1,0 +1,134 @@
+  <div class="navbar-wrapper">
+    <div class="container-fluid">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+              aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav cg_sub_menu">
+              <li class="active"><a href="#" class="">Trang chủ</a><b class="cg_line_menu"></b></li>
+              <li><a href="">Thông tin</a> <b class="cg_line_menu"></b></li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chuyên Mục <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Nhà Đất</a></li>
+                  <li><a href="#">Tin tức</a></li>
+                  <li><a href="#">Mua bán</a></li>
+                  <li><a href="#">Dịch vụ</a></li>
+                </ul>
+              </li>
+              <li><a href="">Bằng cấp</a><b class="cg_line_menu"></b></li>
+              <li><a href="">Tuyển dụng</a><b class="cg_line_menu"></b></li>
+              <li class="dropdown" (onmouseover)="show1=true"> <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ngôn ngữ <span class="caret"></span></a>
+                <ul class="dropdown-menu" *ngIf="show1">
+                  <li><a href="#">Angular</a></li>
+                  <li><a href="#">Typescript</a></li>
+                  <li><a href="#">C#</a></li>
+                  <li><a href="#">CSS</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav cg_sub_menu right" id="ul_right">
+
+              <li class="" ><a [routerLink]="['/login']">Đăng nhập</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div id="index-banner" class="has-background index-banner ">
+    <div class="">
+      <div class="row">
+        <svg viewBox="0 0 960 300">
+          <symbol id="s-text">
+            <text text-anchor="middle" x="50%" y="80%">Hữu Nhiên </text>
+          </symbol>
+
+          <g class="g-ants">
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+          </g>
+        </svg>
+      </div>
+      <span href="" class="typewrite" data-period="2000" data-type='[ "Hi, Tôi là Nguyễn Hữu Nhiên.", "Tôi là 1 người ham học hỏi và có nhiều mơ ước.", "Công việc chủ yếu của tôi là làm về .Net", "Liên hệ với tôi nếu bạn muốn: 01674617917.","Email: nguyenhuunhien1993@gmail.com" ]'></span>
+      <span class="wrap"></span>
+    </div>
+
+  </div>
+<div id="content">
+    <div class="container">
+     <router-outlet></router-outlet>
+    </div>
+  </div>
+  <footer>
+    <div class="footer" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+            <h3>Về chúng tôi </h3>
+            <ul>
+              <li> <a href="#"> Giới thiệu </a> </li>
+              <li> <a href="#"> Đội ngũ </a> </li>
+              <li> <a href="#"> Liên hệ </a> </li>
+              <li> <a href="#"> Quy định và các điều khoản </a> </li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+            <h3> Nhà Đất </h3>
+            <ul>
+              <li> <a href="#"> Hồ Chí Minh </a> </li>
+              <li> <a href="#"> Hà Nội </a> </li>
+              <li> <a href="#"> Đà nẵng </a> </li>
+              <li> <a href="#"> Các tỉnh khác </a> </li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+            <h3> Mua bán </h3>
+            <ul>
+              <li> <a href="#"> Điện tử (laptop,điện thoại...) </a> </li>
+              <li> <a href="#"> Xe </a> </li>
+              <li> <a href="#"> Lorem Ipsum </a> </li>
+              <li> <a href="#"> Lorem Ipsum </a> </li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-md-3 col-sm-4 col-xs-6">
+            <h3> Dịch vụ </h3>
+            <ul>
+              <li> <a href="#"> Cho thuê xe </a> </li>
+              <li> <a href="#"> Đám cưới </a> </li>
+              <li> <a href="#"> Spa </a> </li>
+            </ul>
+          </div>
+          <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+           
+           
+          </div>
+        </div>
+        <!--/.row-->
+      </div>
+      <!--/.container-->
+    </div>
+    <!--/.footer-->
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="pull-left"> Copyright © 2017. Design by <span><a href="https://www.facebook.com/nguyenyukarihuunhien" >Yukari Nhiên</a></span>. </p>
+        <div class="pull-right">
+          <ul class="social">
+              <li> <a href="https://www.facebook.com/nguyenyukarihuunhien"> <i class="fa fa-facebook">   </i> </a> </li>
+              <li> <a href="https://aboutme.google.com/u/0/#profile_photo"> <i class="fa fa-google-plus">   </i> </a> </li>
+              <li> <a href="https://www.youtube.com/channel/UC5thrSBZaR-V97UXJj1cBGQ"> <i class="fa fa-youtube">   </i> </a> </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!--/.footer-bottom-->
+  </footer>
